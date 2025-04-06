@@ -2,11 +2,11 @@ version: "3.8"
 
 services:
 #  ชื่อเดียวกับ container ห้ามซ้ำกับ container อื่น
-  flutter-web:
+  flutter-test:
     build: .
-    container_name: flutter-web
+    container_name: flutter-test
     ports:
-      - "8082:80"
+      - "8083:80"
     networks:
       - docker-network
 
