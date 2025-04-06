@@ -1,25 +1,13 @@
-# ใช้ Flutter SDK image
-FROM ghcr.io/flutter/flutter:latest AS build
+FROM nginx:alpine
 
-# กำหนด Working Directory
-WORKDIR /app
+# ลบ config เดิม
+RUN rm /etc/nginx/conf.d/default.conf
 
-# คัดลอกไฟล์ Flutter ทั้งหมดไปที่ container
-COPY . .
+# ใส่ config ใหม่
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-# ติดตั้ง dependencies และ build Flutter Web
-RUN flutter pub get
-RUN flutter build web --release
+# ใส่เว็บ Flutter ที่บิ้วแล้ว
+COPY build/web /usr/share/nginx/html
 
-# ใช้ Nginx สำหรับเสิร์ฟเว็บ
-FROM nginx:latest
-
-# คัดลอกไฟล์จาก Flutter build ไปที่ Nginx
-COPY --from=build /app/build/web /usr/share/nginx/html
-
-# เปิดพอร์ต 80
 EXPOSE 80
-
-# รัน Nginx
 CMD ["nginx", "-g", "daemon off;"]
-

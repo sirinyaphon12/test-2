@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+#  ชื่อเดียวกับ container ห้ามซ้ำกับ container อื่น
+  flutter-web:
+    build: .
+    container_name: flutter-web
+    ports:
+      - "8082:80"
+    networks:
+      - docker-network
+
+networks:
+  docker-network:
+    external: true
