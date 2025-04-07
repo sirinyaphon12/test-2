@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-#  ชื่อเดียวกับ container ห้ามซ้ำกับ container อื่น
+#  ชื่อเดียวกับ container name ห้ามซ้ำกับ container อื่นที่มี
   flutter-test:
     build: .
     container_name: flutter-test
