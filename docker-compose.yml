@@ -1,4 +1,4 @@
-version: "3.8"
+#version: "3.8"
 
 services:
 #  ชื่อเดียวกับ container name ห้ามซ้ำกับ container อื่นที่มี
