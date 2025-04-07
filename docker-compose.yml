@@ -2,11 +2,11 @@ version: "3.8"
 
 services:
 #  ชื่อเดียวกับ container name ห้ามซ้ำกับ container อื่นที่มี
-  flutter-web-prince:
+  flutter-web-prince2:
     build: .
-    container_name: flutter-web-prince
+    container_name: flutter-web-prince2
     ports:
-      - "8084:80"
+      - "8085:80"
     networks:
       - docker-network
 
