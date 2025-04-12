@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:url_strategy/url_strategy.dart';
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,7 +18,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Web prince จ้า version 2'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const MyHomePage(title: 'Flutter Web prince จ้า version 3 '),
+        '/second': (context) => const SecondPage(),
+      },
     );
   }
 }
@@ -39,10 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _navigateToSecondPage() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const SecondPage()),
-    );
+    Navigator.pushNamed(context, '/second');
   }
 
   @override
