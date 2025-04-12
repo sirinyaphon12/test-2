@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const MyHomePage(title: 'Flutter Web prince จ้า version 3 '),
+        '/': (context) => const MyHomePage(title: 'Flutter Web prince จ้า version 4 '),
         '/second': (context) => const SecondPage(),
       },
     );
